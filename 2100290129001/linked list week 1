@@ -1,0 +1,42 @@
+//Reverse linked list
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        ListNode prev = null;
+        while(head!=null){
+            ListNode temp = head.next;
+            head.next = prev;
+            prev = head;
+            head = temp;
+        }
+        return prev;
+    }
+}
+//Middle of the linked list 
+class Solution {
+    public ListNode middleNode(ListNode head) {
+        ListNode slow = head, fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+        
+    }
+}
+//Swapping nodes in a linked list
+class Solution {
+    public ListNode swapNodes(ListNode head, int k) {
+        ListNode left=head,rigth=head;
+        for(int i=1;i<k;i++)
+        left=left.next;
+        ListNode curr = left;
+        while(curr.next!=null){
+            curr = curr.next;
+            rigth=rigth.next;
+        }
+        int t = left.val;
+        left.val = rigth.val;
+        rigth.val =t;
+        return head;
+    }
+}
